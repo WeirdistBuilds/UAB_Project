@@ -6,9 +6,9 @@ PaperPrototype/UAB_Sepsis_Prototype/[Ll]ibrary/
 PaperPrototype/UAB_Sepsis_Prototype/[Tt]emp/
 PaperPrototype/UAB_Sepsis_Prototype/[Oo]bj/
 PaperPrototype/UAB_Sepsis_Prototype/[Bb]uild/
-PaperPrototype/UAB_Sepsis_Prototype/[Bb]uilds/
 PaperPrototype/UAB_Sepsis_Prototype/[Ll]ogs/
 PaperPrototype/UAB_Sepsis_Prototype/[Mm]emoryCaptures/
+/[Bb]uilds/
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
@@ -61,3 +61,7 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+
+PaperPrototype/UAB_Sepsis_Prototype/\.idea/\.idea\.UAB_Sepsis_Prototype/\.idea/
+
+PaperPrototype/UAB_Sepsis_Prototype/\.idea/\.idea\.UAB_Sepsis_Prototype/
