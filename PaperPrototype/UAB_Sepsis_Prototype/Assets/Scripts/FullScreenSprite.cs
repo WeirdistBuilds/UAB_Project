@@ -1,29 +1,31 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class FullScreenSprite : MonoBehaviour
 {
     private float cameraHeight;
     private Vector2 cameraSize;
-    private Vector2 imageSize;
+    private Vector2 spriteSize;
     private Vector2 scale;
-    private RectTransform rectTransform;
+    private SpriteRenderer spriteRenderer;
     
     void Start()
     {
-        rectTransform = GetComponent<RectTransform>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         cameraHeight = Camera.main.orthographicSize * 2;
         cameraSize = new Vector2(Camera.main.aspect * cameraHeight, cameraHeight);
-        imageSize = rectTransform.sizeDelta;
+        spriteSize = spriteRenderer.sprite.bounds.size;
         
-        scale = rectTransform.localScale;
+        scale = transform.localScale;
         if (cameraSize.x >= cameraSize.y)
         {
-            scale *= cameraSize.x / imageSize.x;
+            scale *= cameraSize.x / spriteSize.x;
         } 
         else
         {
-            scale *= cameraSize.y / imageSize.y;
+            scale *= cameraSize.y / spriteSize.y;
         }
+        
+        transform.position = Vector2.zero;
+        transform.localScale = scale;
     }
 }
