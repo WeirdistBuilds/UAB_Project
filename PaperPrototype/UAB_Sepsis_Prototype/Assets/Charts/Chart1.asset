@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14cc43f453a2a27428fd7e8a7afdad69, type: 3}
+  m_Name: Chart1
+  m_EditorClassIdentifier: 
+  Weight: 70
+  Allergy: NKDA/NKFA
+  History: Hypertension
+  Meds: Norvasc(Amiodipine) 5mg po each day
+  Time: 700
+  Temp: 98.2
+  HRate: 128
+  RRate: 17
+  BPS: 168
+  BPD: 75
+  OnRA: 95
+  EWS: 3
+  qSepsis: 0
