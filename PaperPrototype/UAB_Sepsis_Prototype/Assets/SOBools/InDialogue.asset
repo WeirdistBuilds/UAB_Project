@@ -9,21 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14cc43f453a2a27428fd7e8a7afdad69, type: 3}
-  m_Name: Chart3
+  m_Script: {fileID: 11500000, guid: a1c3fc59b30a19a44b3fe5f0895fdf05, type: 3}
+  m_Name: InDialogue
   m_EditorClassIdentifier: 
-  Name: 
-  Age: 
-  Weight: 0
-  Allergy: 
-  History: 
-  Meds: 
-  Time: 0
-  Temp: 0
-  HRate: 0
-  RRate: 0
-  BPS: 0
-  BPD: 0
-  OnRA: 0
-  EWS: 0
-  qSepsis: 0
+  Value: 0

@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14cc43f453a2a27428fd7e8a7afdad69, type: 3}
   m_Name: Chart2
   m_EditorClassIdentifier: 
-  Name: 
-  Age: 
-  Weight: 0
-  Allergy: 
-  History: 
-  Meds: 
-  Time: 0
-  Temp: 0
-  HRate: 0
-  RRate: 0
-  BPS: 0
-  BPD: 0
-  OnRA: 0
-  EWS: 0
-  qSepsis: 0
+  Name: Mr. Thomas
+  Age: 30
+  Weight: 70
+  Allergy: NKDA/NKFA
+  History: Hypertension
+  Meds: Norvasc(Amiodipine) 5mg po each day
+  Time: 14
+  Temp: 101.3
+  HRate: 135
+  RRate: 28
+  BPS: 110
+  BPD: 60
+  OnRA: 95
+  EWS: 9
+  qSepsis: 2
