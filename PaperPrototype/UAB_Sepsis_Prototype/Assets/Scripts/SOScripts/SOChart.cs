@@ -3,6 +3,8 @@
 [CreateAssetMenu(fileName = "NewChart", menuName = "Scriptable Objects/SOChart")]
 public class SOChart : ScriptableObject
 {
+    public string Name;
+    public string Age;    
     public int Weight;
     public string Allergy;
     public string History;

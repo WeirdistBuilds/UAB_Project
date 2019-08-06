@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14cc43f453a2a27428fd7e8a7afdad69, type: 3}
   m_Name: Chart1
   m_EditorClassIdentifier: 
+  Name: Mr. Thomas
+  Age: 30
   Weight: 70
   Allergy: NKDA/NKFA
   History: Hypertension
   Meds: Norvasc(Amiodipine) 5mg po each day
-  Time: 700
+  Time: 7
   Temp: 98.2
   HRate: 128
   RRate: 17
