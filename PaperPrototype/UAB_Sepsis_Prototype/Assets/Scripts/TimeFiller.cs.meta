@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 374cfc5e89e14624597a47e617f25747
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Chart1: {fileID: 11400000, guid: c00d5e0b440d3dc41bfb250d8c9f2121, type: 2}
+  - Chart2: {fileID: 11400000, guid: 953e67c330a42ab43b514981abf12524, type: 2}
+  - Chart3Good: {fileID: 11400000, guid: 0d997f1aa9937964cb566a173a3d14cd, type: 2}
+  - Screen2: {fileID: 11400000, guid: 101d89a39ff19ad4cb331e85761e9fb1, type: 2}
+  - Screen3: {fileID: 11400000, guid: 373e44488c6cb9548a101598ad843602, type: 2}
+  - Time: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
