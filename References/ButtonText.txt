@@ -1,0 +1,97 @@
+Administer Meds Button:
+	!Screen2 && !Screen3
+	You gave the patient 5 mg Amlodipine (GaveMeds1)
+	The patient doesn't need any more medication
+
+	Screen2 && !Screen3
+	The patient doesn't need any medication
+	(if they click "else" button) WantedMeds1
+	You gave the patient 500mg Tylenol (GaveMeds2)
+	The patient doesn't need any more medication
+
+	Screen3 && !PerformedSepsis
+	The patient is unresponsive
+
+	Screen3 && PerformedSepsis
+	The patient doesn't need any more medication
+
+Bring Water Button:
+	!Screen2 && !Screen3
+	Check to see if they want water first
+	(if they click "else" button) WantedWater1
+	You gave the patient a glass of water (GaveWater1)
+	The patient doesn't need any more water
+
+	Screen2 && !Screen3
+	Check to see if they want water first
+
+	Screen3 && !PerformedSepsis
+	The patient is unresponsive
+
+	Screen3 && PerformedSepsis
+	Check to see if they want water first
+	(if they click "else" button) WantedWater2
+	You gave the patient a glass of water (GaveWater2)
+	The patient doesn't need any more water
+
+Call Physician Button:
+	!Screen2 && !Screen3
+	Pop-up saying "On what grounds?"
+		Concerns about GI Bleeds Button:
+		Popup saying the doctor has ordered an endoscopy
+		CalledPhysician
+			CloseButton:
+			Switch to Screen3
+	else
+	Pop-up saying "On what grounds?"
+		Empty
+
+Call Code MET Button:
+	!Screen2 && !Screen3
+	The patient seems stable right now
+
+	Screen2 && !Screen3
+	MET Pop-up "Hey, thanks for calling us! It looks like your patient
+	has gone septic, so we're going to initiate the Sepsis Power Plan.
+	What should we do first?"
+		Fluids Button:
+		"I don't think that's quite right."
+		Antibiotics Button:
+		"Shouldn't we draw blood to test for infection first?"
+		Blood Cultures
+		"Alright, sounds good! Me and my partner will take care
+		of the rest. Thanks again!"
+			Close Button activates
+
+	Screen3 && !PerformedSepsis
+	MET Pop-up "Thanks for calling us. It looks like your patient
+	is really unstable. We need to transfer them directly to the ICU!"
+		ICU Pop-up
+
+	Screen3 && PerformedSepsis
+	The patient seems stable right now
+
+Call Code Sepsis Button:
+	!Screen2 && !Screen3
+	The patient seems stable right now
+
+	Screen2 && !Screen3
+	While you wait for the MET to arrive, you should start the Sepsis
+	Power Plan right away.
+	What will you do first?"
+		Fluids Button:
+		That's not quite right
+		Antibiotics Button:
+		Shouldn't you draw blood to test for infection first?
+		Blood Cultures
+		Great! The MET team has arrived and will help you do the
+		rest.
+			Close Button activates
+
+	Screen3 && !PerformedSepsis
+	MET Pop-up "Thanks for calling us. It looks like your patient
+	is really unstable. We need to transfer them directly to the ICU!"
+		ICU Pop-up
+
+	Screen3 && PerformedSepsis
+	The patient seems stable right now
