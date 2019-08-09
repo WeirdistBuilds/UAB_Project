@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class ChartFiller : MonoBehaviour
 {
     public SOChart Chart1, Chart2, Chart3Bad, Chart3Good;
-    public SOBool Screen2, Screen3, CalledPhysician, PerformedQSepsis;
+    public SOBool Screen2, Screen3, CalledPhysician, PerformedSepsis;
     public Text General, Vitals0700, Vitals1400, Vitals1800;
 
     private void OnEnable()
@@ -34,6 +34,9 @@ public class ChartFiller : MonoBehaviour
         
         GeneralString.Append("Medications: ");
         GeneralString.Append(Chart1.Meds);
+        
+        GeneralString.Append("Admitting Diagnosis: ");
+        GeneralString.Append("Anemia, Melena");
 
         General.text = GeneralString.ToString();
         
@@ -133,80 +136,80 @@ public class ChartFiller : MonoBehaviour
                 Vitals1400.text = Vitals1400String.ToString();
             }
         }
-        
+
         if (Screen3.Value)
         {
             StringBuilder Vitals1800String = new StringBuilder();
-            
-            Vitals1800String.Append("Time: ");
-            Vitals1800String.Append(Chart3Bad.Time + ":00");
-            Vitals1800String.AppendLine();
-            Vitals1800String.AppendLine();            
-            
-            Vitals1800String.Append("Temp: ");
-            Vitals1800String.Append(Chart3Bad.Temp + " F");
-            Vitals1800String.AppendLine();
-            Vitals1800String.AppendLine();
-            
-            Vitals1800String.Append("HR: ");
-            Vitals1800String.Append(Chart3Bad.HRate);
-            Vitals1800String.AppendLine();
-            Vitals1800String.AppendLine();
-            
-            Vitals1800String.Append("RR: ");
-            Vitals1800String.Append(Chart3Bad.RRate);
-            Vitals1800String.AppendLine();
-            Vitals1800String.AppendLine();
-            
-            Vitals1800String.Append("BP: ");
-            Vitals1800String.Append(Chart3Bad.BPS + "/" + Chart3Bad.BPD);
-            Vitals1800String.AppendLine();
-            Vitals1800String.AppendLine();
-            
-            Vitals1800String.Append(Chart3Bad.OnRA);
-            Vitals1800String.Append("% on RA");
-            Vitals1800String.AppendLine();
-            Vitals1800String.AppendLine();
-            
-            Vitals1800String.Append("EWS: ");
-            Vitals1800String.Append(Chart3Bad.EWS);
 
-            Vitals1800.text = Vitals1800String.ToString();
-            
-            if(PerformedQSepsis)
+            if (PerformedSepsis.Value)
             {
-                Vitals1800String.Clear();
-                
+                Vitals1800String.Append("Time: ");
+                Vitals1800String.Append(Chart3Bad.Time + ":00");
+                Vitals1800String.AppendLine();
+                Vitals1800String.AppendLine();
+
+                Vitals1800String.Append("Temp: ");
+                Vitals1800String.Append(Chart3Bad.Temp + " F");
+                Vitals1800String.AppendLine();
+                Vitals1800String.AppendLine();
+
+                Vitals1800String.Append("HR: ");
+                Vitals1800String.Append(Chart3Bad.HRate);
+                Vitals1800String.AppendLine();
+                Vitals1800String.AppendLine();
+
+                Vitals1800String.Append("RR: ");
+                Vitals1800String.Append(Chart3Bad.RRate);
+                Vitals1800String.AppendLine();
+                Vitals1800String.AppendLine();
+
+                Vitals1800String.Append("BP: ");
+                Vitals1800String.Append(Chart3Bad.BPS + "/" + Chart3Bad.BPD);
+                Vitals1800String.AppendLine();
+                Vitals1800String.AppendLine();
+
+                Vitals1800String.Append(Chart3Bad.OnRA);
+                Vitals1800String.Append("% on RA");
+                Vitals1800String.AppendLine();
+                Vitals1800String.AppendLine();
+
+                Vitals1800String.Append("EWS: ");
+                Vitals1800String.Append(Chart3Bad.EWS);
+
+                Vitals1800.text = Vitals1800String.ToString();
+            }
+            else
+            {
                 Vitals1800String.Append("Time: ");
                 Vitals1800String.Append(Chart3Good.Time + ":00");
                 Vitals1800String.AppendLine();
-                Vitals1800String.AppendLine();            
-            
+                Vitals1800String.AppendLine();
+
                 Vitals1800String.Append("Temp: ");
                 Vitals1800String.Append(Chart3Good.Temp + " F");
                 Vitals1800String.AppendLine();
                 Vitals1800String.AppendLine();
-            
+
                 Vitals1800String.Append("HR: ");
                 Vitals1800String.Append(Chart3Good.HRate);
                 Vitals1800String.AppendLine();
                 Vitals1800String.AppendLine();
-            
+
                 Vitals1800String.Append("RR: ");
                 Vitals1800String.Append(Chart3Good.RRate);
                 Vitals1800String.AppendLine();
                 Vitals1800String.AppendLine();
-            
+
                 Vitals1800String.Append("BP: ");
                 Vitals1800String.Append(Chart3Good.BPS + "/" + Chart3Good.BPD);
                 Vitals1800String.AppendLine();
                 Vitals1800String.AppendLine();
-            
+
                 Vitals1800String.Append(Chart3Good.OnRA);
                 Vitals1800String.Append("% on RA");
                 Vitals1800String.AppendLine();
                 Vitals1800String.AppendLine();
-            
+
                 Vitals1800String.Append("EWS: ");
                 Vitals1800String.Append(Chart3Good.EWS);
 
@@ -214,5 +217,4 @@ public class ChartFiller : MonoBehaviour
             }
         }
     }
-
 }
