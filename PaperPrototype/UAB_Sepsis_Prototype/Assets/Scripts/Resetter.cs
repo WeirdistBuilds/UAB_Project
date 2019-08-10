@@ -3,6 +3,7 @@
 public class Resetter : MonoBehaviour
 {
     public SOBool[] GameBools;
+    public SOInt Score;
 
     void Start()
     {
@@ -10,5 +11,7 @@ public class Resetter : MonoBehaviour
         {
             GameBools[i].Value = false;
         }
+
+        Score.value = 0;
     }
 }

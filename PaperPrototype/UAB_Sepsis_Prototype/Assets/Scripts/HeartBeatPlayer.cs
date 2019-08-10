@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class HeartBeatPlayer : MonoBehaviour
 {
     public SOBool Screen2, Screen3, CalledPhysician, PerformedSepsis;
     public GameObject[] Heartbeats;
+    public Text InfoBox;
 
     void Start()
     {
@@ -22,17 +24,27 @@ public class HeartBeatPlayer : MonoBehaviour
     {
         StopBeats();
         
-        if (Screen3.Value && PerformedSepsis.Value)
+        if (Screen3.Value)
         {
-            Heartbeats[0].SetActive(true);
+            if (PerformedSepsis.Value)
+            {
+                Heartbeats[0].SetActive(true);
+            }
+            else
+            {
+                Heartbeats[3].SetActive(true);
+            }
         }
-        else if (Screen3.Value && !PerformedSepsis.Value)
+        else if (Screen2.Value)
         {
-            Heartbeats[3].SetActive(true);
-        }
-        else if (Screen2.Value && !CalledPhysician.Value)
-        {
-            Heartbeats[2].SetActive(true);
+            if(CalledPhysician.Value)
+            {
+                InfoBox.text = "The patient is gone";
+            }
+            else
+            {
+                Heartbeats[2].SetActive(true);                
+            }
         }
         else
         {

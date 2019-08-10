@@ -5,6 +5,12 @@ public class PatientSwitch : MonoBehaviour
     public GameObject[] Scenes;
     public SOBool Screen2, Screen3, CalledPhysician, GameComplete, PerformedSepsis, AssessedLeg;
 
+    void Start()
+    {
+        Call();
+    }
+    
+    
     private void ResetScenes()
     {
         for (int i = 0; i < Scenes.Length; i++)

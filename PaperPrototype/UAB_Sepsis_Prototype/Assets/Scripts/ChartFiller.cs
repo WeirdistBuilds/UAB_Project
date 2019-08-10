@@ -34,6 +34,7 @@ public class ChartFiller : MonoBehaviour
         
         GeneralString.Append("Medications: ");
         GeneralString.Append(Chart1.Meds);
+        GeneralString.AppendLine();
         
         GeneralString.Append("Admitting Diagnosis: ");
         GeneralString.Append("Anemia, Melena");

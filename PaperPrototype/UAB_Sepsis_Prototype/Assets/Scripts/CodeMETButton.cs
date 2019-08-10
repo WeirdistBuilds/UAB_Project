@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class CodeSepsisButton : MonoBehaviour
+public class CodeMETButton : MonoBehaviour
 {
     public SOBool Screen2, Screen3, GameComplete, CalledPhysician, PerformedSepsis;
-    public GameObject CodeSepsis, Stable, Scene3Critical;
+    public GameObject CodeMET, Stable, Scene3Critical;
     public GameObject[] UI;
     public Text InfoBox;
     
@@ -14,7 +14,7 @@ public class CodeSepsisButton : MonoBehaviour
         {
             if (!CalledPhysician.Value)
             {
-                CodeSepsis.SetActive(true);
+                CodeMET.SetActive(true);
             }
             else
             {
