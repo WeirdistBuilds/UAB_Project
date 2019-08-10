@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eafe12eba0080941851254a9b876765, type: 3}
-  m_Name: CalledRightCodeTrue
+  m_Script: {fileID: 11500000, guid: 42f1b9ea633270b49bd69b21ea14320a, type: 3}
+  m_Name: SceneChangerGame
   m_EditorClassIdentifier: 
-  ToChange: {fileID: 11400000, guid: 9185c265b7b716a4dba2acff109e464e, type: 2}
-  Result: 1
+  ChangeToScene: 1
