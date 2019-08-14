@@ -142,7 +142,7 @@ public class ChartFiller : MonoBehaviour
         {
             StringBuilder Vitals1800String = new StringBuilder();
 
-            if (PerformedSepsis.Value)
+            if (!PerformedSepsis.Value)
             {
                 Vitals1800String.Append("Time: ");
                 Vitals1800String.Append(Chart3Bad.Time + ":00");

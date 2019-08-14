@@ -14,6 +14,7 @@ public class FinalScoreFiller : MonoBehaviour
         WantedMeds1,
         GaveMeds2,
         CalledRightCode,
+        CalledCodeOnTime,
         ChoseWrong,
         PerformedSepsis,
         GaveWater2,
@@ -41,6 +42,7 @@ public class FinalScoreFiller : MonoBehaviour
         FinalString.Append("Out of " + TotalScore.Value + " possible points,");
         FinalString.AppendLine();
         FinalString.Append("You got " + FinalScore.Value + ".");
+        FinalString.AppendLine();
         FinalString.AppendLine();
         
         if (FinalScore.Value < poor)
@@ -81,10 +83,12 @@ public class FinalScoreFiller : MonoBehaviour
             {
                 ScoreString.Append("You asked the patient how his leg was doing, but didn't do a visual assessment.");
                 ScoreString.AppendLine();
+                ScoreString.AppendLine();
             }
             else
             {
                 ScoreString.Append("You asked the patient how his leg was doing, and did a visual assessment.");
+                ScoreString.AppendLine();
                 ScoreString.AppendLine();
                 FinalScore.value++;
             }
@@ -94,11 +98,13 @@ public class FinalScoreFiller : MonoBehaviour
         {
             ScoreString.Append("You gave the patient his home medication.");
             ScoreString.AppendLine();
+            ScoreString.AppendLine();
             FinalScore.value++;
         }
         else
         {
             ScoreString.Append("You didn't give the patient his home medication.");
+            ScoreString.AppendLine();
             ScoreString.AppendLine();
         }
         
@@ -107,6 +113,7 @@ public class FinalScoreFiller : MonoBehaviour
         {
             ScoreString.Append("You didn't ask the patient if he needed anything at 07:00.");
             ScoreString.AppendLine();
+            ScoreString.AppendLine();
         }
         else
         {
@@ -114,10 +121,12 @@ public class FinalScoreFiller : MonoBehaviour
             {
                 ScoreString.Append("You asked the patient if he needed anything at 07:00, but forgot to give him water.");
                 ScoreString.AppendLine();
+                ScoreString.AppendLine();
             }
             else
             {
                 ScoreString.Append("You asked the patient if he needed anything at 07:00, and gave him water.");
+                ScoreString.AppendLine();
                 ScoreString.AppendLine();
                 FinalScore.value++;                    
             }   
@@ -130,6 +139,7 @@ public class FinalScoreFiller : MonoBehaviour
         {
             ScoreString.Append("You called a physician on the grounds of suspected GI bleeds, causing him to miss his 14:00 vitals");
             ScoreString.AppendLine();
+            ScoreString.AppendLine();
         }
         else //14:00
         {
@@ -137,52 +147,73 @@ public class FinalScoreFiller : MonoBehaviour
             {
                 ScoreString.Append("You didn't ask the patient if he needed anything at 14:00.");
                 ScoreString.AppendLine();
+                ScoreString.AppendLine();
             }
             else
             {
-                if (!GaveMeds2.Value)
+                if (GaveMeds2.Value)
                 {
-                    ScoreString.Append("You asked the patient if he needed anything at 14:00, but forgot to give him water.");
+                    ScoreString.Append("You asked the patient if he needed anything at 14:00, and gave him pain medication.");
                     ScoreString.AppendLine();
+                    ScoreString.AppendLine();
+                    FinalScore.value++; 
                 }
                 else
                 {
-                    ScoreString.Append("You asked the patient if he needed anything at 14:00, and gave him water.");
+                    ScoreString.Append("You asked the patient if he needed anything at 14:00, but forgot to give him pain medication.");
                     ScoreString.AppendLine();
-                    FinalScore.value++;                    
+                    ScoreString.AppendLine();                  
                 }   
             }
 
-            if (CalledRightCode.Value)
+            if (CalledCodeOnTime.Value)
             {
-                ScoreString.Append("You called the Code Sepsis! That's great!");
+                ScoreString.Append("You called a code on time.");
                 ScoreString.AppendLine();
-                FinalScore.value += 2;  
+                ScoreString.AppendLine();
+                FinalScore.value++;
+                if (CalledRightCode.Value)
+                {
+                    ScoreString.Append("You called a Code Sepsis! That was just the right thing to do.");
+                    ScoreString.AppendLine();
+                    ScoreString.AppendLine();
+                    FinalScore.value += 3;  
+                }
+                else
+                {
+                    ScoreString.Append("You called a Code MET! That's good, but if you had realized the patient was septic you could have called Code Sepsis and started on the Sepsis Power Plan right away.");
+                    ScoreString.AppendLine();
+                    ScoreString.AppendLine();
+                    FinalScore.value++; 
+                }
+
+                if (ChoseWrong.Value)
+                {
+                    ScoreString.Append("During the Sepsis Power Plan, you didn't remember to start with drawing blood for cultures. That's very important to do first.");
+                    ScoreString.AppendLine();
+                    ScoreString.AppendLine();  
+                }
+                else
+                {
+                    ScoreString.Append("You remembered to start with blood cultures! That was very smart, thank you!");
+                    ScoreString.AppendLine();
+                    ScoreString.AppendLine();
+                    FinalScore.value++; 
+                }
+
+                if (PerformedSepsis.Value)
+                {
+                    ScoreString.Append("You handled the patient's sepsis and managed to stabilize them. Amazing!");
+                    ScoreString.AppendLine();
+                    ScoreString.AppendLine();
+                    FinalScore.value += 10;
+                } 
             }
             else
             {
-                ScoreString.Append("You called the Code MET! That's good, but if you had realized the patient was septic you could have called Code Sepsis and started on the Sepsis Power Plan right away.");
+                ScoreString.Append("You didn't call a code at 14:00. Be sure to check the vitals chart every round!");
                 ScoreString.AppendLine();
-                FinalScore.value++; 
-            }
-
-            if (ChoseWrong.Value)
-            {
-                ScoreString.Append("During the Sepsis Power Plan, you didn't remember to start with drawing blood for cultures. That's very important to do first!");
-                ScoreString.AppendLine();  
-            }
-            else
-            {
-                ScoreString.Append("You remembered to start with blood cultures! That's great.");
                 ScoreString.AppendLine();
-                FinalScore.value++; 
-            }
-
-            if (PerformedSepsis.Value)
-            {
-                ScoreString.Append("You handled the patient's sepsis and managed to stabilize them. Amazing!");
-                ScoreString.AppendLine();
-                FinalScore.value += 10;
             }
         }
         
@@ -191,6 +222,7 @@ public class FinalScoreFiller : MonoBehaviour
         {
             ScoreString.Append("You didn't ask the patient if he needed anything at 18:00.");
             ScoreString.AppendLine();
+            ScoreString.AppendLine();
         }
         else
         {
@@ -198,10 +230,12 @@ public class FinalScoreFiller : MonoBehaviour
             {
                 ScoreString.Append("You asked the patient if he needed anything at 18:00, but forgot to give him water.");
                 ScoreString.AppendLine();
+                ScoreString.AppendLine();
             }
             else
             {
                 ScoreString.Append("You asked the patient if he needed anything at 18:00, and gave him water.");
+                ScoreString.AppendLine();
                 ScoreString.AppendLine();
                 FinalScore.value++;                    
             }   

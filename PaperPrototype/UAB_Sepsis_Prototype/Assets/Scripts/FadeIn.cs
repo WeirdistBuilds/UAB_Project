@@ -1,23 +1,36 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
 
-public class FadeIn : MonoBehaviour {
+public class FadeIn : MonoBehaviour
+{
 
-    public float fadeTime;
-    private Image blackScreen;
+	public float FadeTime;
+	private Image blackScreen;
+	private bool fadingIn;
 
-	void Start ()
+	void Start()
 	{
-        blackScreen = GetComponent<Image>();
+		blackScreen = GetComponent<Image>();
+		fadingIn = true;
 	}
-	
-	void Update ()
+
+	private void OnEnable()
 	{
-		blackScreen.CrossFadeAlpha(0f, fadeTime, false);
-		
-		if (blackScreen.color.a <= 0)
+		fadingIn = true;
+	}
+
+	void Update()
+	{
+		if (fadingIn)
 		{
-			gameObject.SetActive(false);
+			blackScreen.CrossFadeAlpha(0f, FadeTime * Time.deltaTime, false);
+
+			if (blackScreen.color.a <= 0)
+			{
+				fadingIn = false;
+				gameObject.SetActive(false);
+			}
+
 		}
 	}
 }

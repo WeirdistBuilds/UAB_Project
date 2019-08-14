@@ -27,6 +27,10 @@ public class AdministerMedsButton : MonoBehaviour
             {
                 InfoText.text = "You gave the patient 500mg Tylenol";
                 GaveMeds2.Value = true;
+                if (!GaveMeds2)
+                {
+                    GaveMeds2.Value = true;
+                }
             }
             else
             {

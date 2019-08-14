@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class CodeMETButton : MonoBehaviour
 {
-    public SOBool Screen2, Screen3, GameComplete, CalledPhysician, PerformedSepsis;
+    public SOBool Screen2, Screen3, GameComplete, CalledPhysician, CalledCodeOnTime, PerformedSepsis;
     public GameObject CodeMET, Stable, Scene3Critical;
     public GameObject[] UI;
     public Text InfoBox;
@@ -12,13 +12,18 @@ public class CodeMETButton : MonoBehaviour
     {
         if (Screen2.Value && !Screen3.Value)
         {
-            if (!CalledPhysician.Value)
+            if (!CalledPhysician.Value && !PerformedSepsis.Value)
             {
                 CodeMET.SetActive(true);
+                CalledCodeOnTime.Value = true;
+            }
+            else if (CalledPhysician.Value)
+            {
+                InfoBox.text = "The patient is not here";
             }
             else
             {
-                InfoBox.text = "The patient is not here";
+                Stable.SetActive(true);
             }
         }
         else if (Screen3.Value && !PerformedSepsis.Value)

@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class VisualAssessButton : MonoBehaviour
 {
-    public SOBool Screen2, Screen3, CalledPhysician, AskedAboutLeg, AssessedLeg;
+    public SOBool Screen2, Screen3, CalledPhysician, PerformedSepsis, AskedAboutLeg, AssessedLeg;
     public Text InfoBox;
     
     public void Call()
@@ -34,7 +34,7 @@ public class VisualAssessButton : MonoBehaviour
         }
         else
         {
-            if (CalledPhysician.Value)
+            if (!PerformedSepsis.Value)
             {
                 InfoBox.text = "He's unconscious, feverish, and his vitals are dropping rapidly";
             }

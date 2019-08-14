@@ -3,10 +3,13 @@
 public class ChartSwitch : MonoBehaviour
 {
     public GameObject ChartParent;
+    public SOBool GameComplete;
     
     public void Call()
     {
-        ChartParent.SetActive(!ChartParent.activeInHierarchy);
+        if (!GameComplete.Value)
+        {
+            ChartParent.SetActive(!ChartParent.activeInHierarchy);
+        }
     }
-    
 }
